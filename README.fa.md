@@ -153,7 +153,6 @@ netlify-scanner-go jarm --learn --ips netlify-ips.txt
 
 ## نکته‌ی مهم در مورد نویز seed list
 
-پروژه‌ی اصلی (`IR-NETLIFY/NETLIFY-SCANNER`) لیست IPهاش رو با این منطق ساخته بود: «هر IP که به curl --resolve یک hostname پاسخ ۲۰۰ داد». این منطق ربطی به Netlify نداره و بخش زیادی از اون لیست در واقع Cloudflare / Google / AWS / Bing بود.
 
 این نسخه:
 - `verify` رو به‌عنوان مرحله‌ی مستقل اضافه کرده — قبل از اعتماد به هر IP، با TLS handshake و چک cert SAN تأیید می‌کنه.
