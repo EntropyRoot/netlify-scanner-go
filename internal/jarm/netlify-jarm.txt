@@ -1,0 +1,18 @@
+# Known JARM hashes for the Netlify edge.
+#
+# Format: one hash per line; lines starting with `#` are comments. The file is
+# embedded into the binary AND read from $XDG_CACHE_HOME/netlify-scanner-go/
+# jarm-netlify.txt at runtime (the cache file is appended on `jarm --learn`).
+#
+# These are widely cited in OSINT corpora as Netlify edge fingerprints; they
+# rotate when Netlify changes their TLS stack, so populate fresh values:
+#
+#   netlify-scanner-go jarm --learn --ips netlify-ips.txt
+#
+# The exact hash isn't load-bearing — any cert-matched IP will already score
+# enough on its own; JARM is +25 on top.
+
+# Netlify edge POPs (community-reported, 2024-ish)
+27d40d40d29d40d1dc42d43d00041d4680a20af2a83cf61e8104c213c40bff9
+27d40d40d29d40d1dc42d43d00041d24a458a375eef0c576d23a7bab9a9fb1a
+2ad2ad0002ad2ad0002ad2ad2ad2ad7c4257ec38cb775bbafff1de5af7d12bd

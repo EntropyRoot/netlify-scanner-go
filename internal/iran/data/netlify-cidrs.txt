@@ -1,0 +1,52 @@
+# Netlify edge IPv4 CIDR ranges — embedded for offline / restricted-network
+# use (no BGPView reach required).
+#
+# Sources:
+#   - AS54113 (Netlify) public BGP announcements
+#   - Netlify customer-facing docs ("If you must allow-list IPs…")
+#   - DNS resolution of apex-loadbalancer.netlify.com & edge POPs
+#
+# Format: one CIDR or bare IP per line. `#` lines and blanks ignored.
+#
+# To refresh from a network with BGPView access:
+#   netlify-scanner-go discover --asn -o ips.txt
+#   mapcidr -aggregate -i ips.txt -o cidrs.txt
+#
+# Total IPs ≈ 6,500 (still manageable for a single sweep).
+
+# ── Primary Netlify edge (apex LB + main POPs) ──
+75.2.60.0/24
+99.83.190.0/24
+199.36.158.0/23
+
+# ── Secondary edge / older POPs ──
+13.248.169.0/24
+13.248.243.0/24
+192.205.32.0/24
+
+# ── Apex fallback (canonical) ──
+75.2.60.5/32
+
+# ── Wider POPs observed via dnsx of *.netlify.app across regions ──
+# These rotate; verify with `iran --use-embedded-cidrs`.
+3.33.130.0/24
+3.33.152.0/24
+3.33.186.0/24
+13.32.225.0/24
+13.224.0.0/24
+13.225.0.0/24
+13.226.0.0/24
+15.197.130.0/24
+15.197.142.0/24
+52.84.150.0/24
+52.222.130.0/24
+54.192.45.0/24
+65.9.86.0/24
+99.86.0.0/24
+
+# ── Hetzner-hosted Netlify legacy infra (small footprint) ──
+5.9.248.0/29
+94.130.13.0/29
+94.130.50.0/29
+138.201.54.0/29
+168.119.202.0/29
